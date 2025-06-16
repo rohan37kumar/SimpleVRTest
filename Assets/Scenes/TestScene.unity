@@ -122,6 +122,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!20 &116686652 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2483171112400622654, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 609614675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &155274065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1306,7 +1311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1032496923}
-  offset: {x: 0, y: 0.75, z: 1}
+  offset: {x: 0, y: 0.25, z: 0.25}
+  vrCamera: {fileID: 116686652}
 --- !u!1001 &952129731
 PrefabInstance:
   m_ObjectHideFlags: 0

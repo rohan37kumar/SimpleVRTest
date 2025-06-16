@@ -3,6 +3,7 @@ public class FollowVRSetupUI : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset = Vector3.zero;
+    [SerializeField] private Camera vrCamera;
 
 
     private void LateUpdate()
@@ -13,6 +14,8 @@ public class FollowVRSetupUI : MonoBehaviour
 
         // Instantly update position
         transform.position = targetPosition;
+        Vector3 lookDir = transform.position - vrCamera.transform.position;
+        transform.rotation = Quaternion.LookRotation(lookDir, Vector3.up);
     }
 
 }
