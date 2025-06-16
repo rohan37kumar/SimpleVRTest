@@ -31,16 +31,12 @@ This Virtual Reality project is a radiation detection simulation built using Uni
 ### Scripts Overview
 
 1. **DetectorMechanism.cs**
-   - Core detection component
-   - Handles trigger-based radiation detection
-   - Implements event system for radiation detection
-   - Maintains detector position and state
+   - Radiation detector component
+   - Broadcasts radiation detection events
 
 2. **RadiationSource.cs**
-   - Defines radiation source behavior
+   - Handles trigger-based radiation detection
    - Contains radiation type and properties
-   - Interacts with detector mechanism
-
 3. **RadiationData.cs**
    - Data structure for radiation properties
    - Serializable for Unity inspector integration

@@ -4,7 +4,6 @@ using System;
 public class DetectorMechanism : MonoBehaviour
 {
     public static event Action<RadiationData> OnRadiationDetected;
-    private bool isInRadiationField = false;
     [SerializeField] private Vector3 defaultPosition;
 
     private void Start()
@@ -12,29 +11,9 @@ public class DetectorMechanism : MonoBehaviour
         transform.position = defaultPosition;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public static void BroadcastRadiationDetection(RadiationData data)
     {
-        if (other.CompareTag("Radiation"))
-        {
-            RadiationSource source = other.GetComponent<RadiationSource>();
-            if (source != null && !isInRadiationField)
-            {
-                isInRadiationField = true;
-                OnRadiationDetected?.Invoke(source.radiationData);
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Radiation"))
-        {
-            RadiationSource source = other.GetComponent<RadiationSource>();
-            if (source != null && isInRadiationField)
-            {
-                isInRadiationField = false;
-                OnRadiationDetected?.Invoke(null);
-            }
-        }
+        Debug.Log("radiation detected");
+        OnRadiationDetected?.Invoke(data);
     }
 }

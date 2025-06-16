@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Text radiationDisplayText;
+    private TextMeshProUGUI radiationDisplayText;
     private AudioSource radiationAudioSource;
 
     private void Start()
@@ -41,13 +42,14 @@ public class GameManager : MonoBehaviour
             else
             {
                 radiationDisplayText.text = $"Detected: {char.ToUpper(radiationData.typeIdentifier[0]) + radiationData.typeIdentifier.Substring(1)} Radiation";
-                
+
                 if (radiationData.radiationSound != null)
                 {
                     radiationAudioSource.clip = radiationData.radiationSound;
                     radiationAudioSource.Play();
                 }
             }
+            Debug.Log($"Radiation Display Updated: {radiationDisplayText.text}");
         }
     }
 }
