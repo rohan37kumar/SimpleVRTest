@@ -22,31 +22,43 @@ This Virtual Reality project is a radiation detection simulation built using Uni
    - Proximity-based detection mechanics
 
 3. **User Feedback System**
-   - Visual UI display showing radiation type
-   - Spatial audio feedback for detection events
-   - Real-time status updates
+   - Text Mesh Pro UI display showing radiation type
+   - Dynamic spatial audio feedback with looping capability
+   - Camera-following UI system for optimal visibility
+   - Real-time status updates with proper text formatting
 
 ## Project Architecture
 
 ### Scripts Overview
 
 1. **DetectorMechanism.cs**
-   - Radiation detector component
-   - Broadcasts radiation detection events
+   - Core radiation detector component
+   - Implements event-based detection system
+   - Broadcasts radiation detection events globally
 
 2. **RadiationSource.cs**
-   - Handles trigger-based radiation detection
+   - Handles trigger-based radiation detection zones
    - Contains radiation type and properties
+   - Implements enter/exit trigger logic
+
 3. **RadiationData.cs**
-   - Data structure for radiation properties
-   - Serializable for Unity inspector integration
-   - Stores radiation type and associated audio
+   - Serializable data structure for radiation properties
+   - Stores radiation type identifier
+   - Manages associated audio feedback
 
 4. **GameManager.cs**
    - Central game state controller
-   - Manages UI updates
-   - Handles audio feedback system
-   - Processes radiation detection events
+   - Processes and formats radiation detection events
+
+5. **FollowVRSetupUI.cs**
+   - Manages UI positioning in VR space
+   - Implements camera-relative UI following
+   - Handles UI rotation to face the user
+   - Supports custom offset positioning
+
+6. **ObjectFollower.cs**
+   - Utility script for object following behavior
+   - (Currently implemented as a placeholder)
 
 ## VR Implementation Details
 - **Grabbing System**: Utilizes Meta XR's `Grabbable` and `DistanceGrabbable` components
@@ -58,22 +70,11 @@ This Virtual Reality project is a radiation detection simulation built using Uni
 - Meta XR All-in-One SDK
 - Meta XR Interaction Toolkit
 - Meta XR Simulator (for development testing)
-
-
-## Design Decisions
-- Event-driven architecture for loose coupling
-- Modular script design for easy maintenance
-- Scalable radiation type system
-- VR-optimized interaction system
+- TextMeshPro (for UI rendering)
 
 ## Testing
 - Tested with Meta XR Simulator
 
 This project demonstrates proficiency in:
-- VR development with Unity
 - Meta XR SDK implementation
 - Interactive VR system design
-- Clean, maintainable code architecture
-- Performance optimization for VR
-- Event-driven programming
-- Unity best practices
